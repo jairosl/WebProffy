@@ -6,6 +6,7 @@ import warningIcon from '../../assets/images/icons/warning.svg'
 
 import './styles.css';
 import TextArea from '../../components/TextArea';
+import Select from '../../components/Select';
 
 const TecherForm: React.FC = () => {
   return (
@@ -29,9 +30,52 @@ const TecherForm: React.FC = () => {
           <fieldset>
             <legend>Sobre a aula</legend>
             
-            <Input name="subject" label="Materia"/>
+            <Select 
+              name="subject" 
+              label="Materia"
+              options={[
+                { value: 'Artes', label: 'Artes'},
+                { value: 'Biologia', label: 'Biologia'},
+                { value: 'Matemática', label: 'Matemática'},
+                { value: 'Educação Física', label: 'Educação Física'},
+                { value: 'Física', label: 'Física'},
+                { value: 'Química', label: 'Química'},
+                { value: 'Geografia', label: 'Geografia'},
+                { value: 'Historia', label: 'Historia'},
+                { value: 'Português', label: 'Português'},
+                { value: 'Inglês', label: 'Inglês'},
+              ]}
+            />
+            
             <Input name="cost" label="Custo da sua hora por aula"/>
 
+          </fieldset>
+
+          <fieldset>
+            <legend>
+              Horarios Disponíveis
+              <button type="button">
+                + Novo Horario
+              </button>
+            </legend>
+            
+            <div className="schedule-item">
+              <Select 
+                name="week_day" 
+                label="Dia da semana"
+                options={[
+                  { value: '0', label: 'Domingo'},
+                  { value: '1', label: 'Segunda'},
+                  { value: '2', label: 'Terça'},
+                  { value: '3', label: 'Quarta'},
+                  { value: '4', label: 'Quinta'},
+                  { value: '5', label: 'Sexta'},
+                  { value: '6', label: 'Sábado'},
+                ]}
+              />
+              <Input name="from" label="Das" type="time" />
+              <Input name="to" label="Até" type="time" />
+            </div>
           </fieldset>
 
           <footer>
